@@ -1,0 +1,187 @@
+# ----------------------------------------
+# CORE PROPERTIES
+# ----------------------------------------
+# BANNER
+banner:
+  charset: UTF-8
+
+spring:
+  # PROFILES
+  profiles:
+    active: local
+  # IDENTITY
+  application:
+    name: cpm-erp-service
+  # AOP
+  aop:
+    auto: true
+    proxy-target-class: false
+  # FILE ENCODING (FileEncodingApplicationListener)
+  mandatory-file-encoding: utf-8
+  # HTTP encoding (HttpEncodingProperties)
+  http:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+    multipart:
+      max-file-size: 256MB
+      max-request-size: 256MB
+  # JACKSON (JacksonProperties)
+  jackson:
+      date-format: yyyy-MM-dd HH:mm:ss
+  # REDIS (RedisProperties)
+  redis:
+    database: 0
+    host: localhost
+    port: 6379
+    password: Abcd1234
+    timeout: 6000
+    pool:
+      max-active: 1000
+      max-wait: -1
+      max-idle: 10
+      min-idle: 5
+  # JPA PROPERTIES
+  jpa:
+    database: MYSQL
+    show-sql: true
+    generate-ddl: false
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate:
+        enable_lazy_load_no_trans: true
+  # DATASOURCE COMMON PROPERTIES
+  datasource:
+    base-db:
+      driver-class-name: com.mysql.jdbc.Driver
+      connection-timeout: 2000
+      maximum-pool-size: 20
+      type: com.alibaba.druid.pool.DruidDataSource
+      url: jdbc:mysql://localhost:3306/booking_service_db?useSSL=false&zeroDateTimeBehavior=convertToNull&characterEncoding=utf-8
+      username: root
+      password: 123456
+      initialSize: 5
+      minIdle: 0
+      maxActive: 500
+      maxWait: 8000
+      removeAbandoned: true
+      removeAbandonedTimeout: 180
+      timeBetweenEvictionRunsMillis: 60000
+      minEvictableIdleTimeMillis: 300000
+      validationQuery: SELECT 'x' FROM DUAL
+      validationQueryTimeout: 3000
+      testWhileIdle: true
+      testOnBorrow: true
+      testOnReturn: false
+      poolPreparedStatements: true
+      maxPoolPreparedStatementPerConnectionSize: 20
+      filters: wall,stat
+      logAbandoned: true
+#      url: jdbc:mysql://localhost:3306/base_db?useSSL=false&zeroDateTimeBehavior=convertToNull&characterEncoding=utf-8
+#      username: root
+#      password: 123456
+
+# EMBEDDED SERVER CONFIGURATION (ServerProperties)
+server:
+  port: 10201
+  context-path: /
+
+# LOGGING
+logging:
+  level.root: info
+  level.com.blbuyer: info
+    # LOGBACK OUTPUT PATH
+  dir: /logs/cpm-logs/${spring.application.name}/application/
+
+# ----------------------------------------
+# SECURITY PROPERTIES
+# ----------------------------------------
+management:
+  security:
+    enabled: false
+
+# ----------------------------------------
+# HYSTRIX PROPERTIES
+# ----------------------------------------
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 30000
+
+# ----------------------------------------
+# RIBBON PROPERTIES
+# ----------------------------------------
+ribbon:
+  ReadTimeout: 50000
+  ConnectTimeout: 30000
+
+# ----------------------------------------
+# API DOCS PROPERTIES
+# ----------------------------------------
+blbuyer-api:
+  enabled: true
+  pathMapping: ${server.context-path}
+  title: Basic Management API Docs
+  description:
+  contactName: Andriy Huang
+  contactUrl:
+  contactEmail: yaxiang.huang@capgemini.com
+  version: 1.0.0
+  
+interface:
+  sap:
+    httpauthname: RFC_ZHK
+    httpauthpwd: Sap12345
+    supplierlist: http://54.223.80.88:50000/sap/opu/odata/sap/ZGW_VENDOR_SRV/SupplierSet
+    sopush: http://54.223.80.88:50000/sap/opu/odata/sap/ZZK_SO_SRV/SOHeadSet
+    
+  
+order:
+  minOrderId: 5010000
+  salesReportSize: 10
+  zoneReportSize: 5 
+    
+    
+# ----------------------------------------
+# PROFILES PROPERTIES
+# ----------------------------------------
+---
+# Local environment
+spring:
+  # PROFILES
+  profiles: local
+
+---
+# Development environment
+spring:
+  # PROFILES
+  profiles: dev
+
+---
+# Development environment
+spring:
+  # PROFILES
+  profiles: docker
+
+---
+# SIT environment
+spring:
+  # PROFILES
+  profiles: sit
+  
+---
+# UAT environment
+spring:
+  # PROFILES
+  profiles: uat
+
+---
+# Production environment
+spring:
+  # PROFILES
+  profiles: prod

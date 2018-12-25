@@ -1,0 +1,96 @@
+# ----------------------------------------
+# NETFLIX EUREKA PROPERTIES
+# ----------------------------------------
+eureka:
+  client:
+    enabled: false
+    register-with-eureka: ${eureka.client.enabled}
+    service-url:
+      defaultZone: http://localhost:30001/eureka/
+
+
+# ----------------------------------------
+# PROFILES PROPERTIES
+# ----------------------------------------
+---
+# Local environment
+spring:
+  # PROFILES
+  profiles: local
+
+---
+# Development environment
+spring:
+  # PROFILES
+  profiles: dev
+  zipkin:
+    base-url: http://localhost:30003
+
+# NETFLIX EUREKA PROPERTIES
+eureka:
+  client:
+    enabled: true
+    service-url:
+       defaultZone: http://localhost:30001/eureka/
+
+---
+# Development environment
+spring:
+  # PROFILES
+  profiles: docker
+  zipkin:
+    base-url: http://localhost:30003
+
+# NETFLIX EUREKA PROPERTIES
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    enabled: true
+    service-url:
+       defaultZone: http://localhost:30001/eureka/
+
+---
+# SIT environment
+spring:
+  # PROFILES
+  profiles: sit
+  zipkin:
+    base-url: http://localhost:30003 
+
+# NETFLIX EUREKA PROPERTIES
+eureka:
+  client:
+    enabled: true
+    service-url:
+       defaultZone: http://localhost:30001/eureka/
+
+---
+# UAT environment
+spring:
+  # PROFILES
+  profiles: uat
+  zipkin:
+    base-url: http://localhost:30003 
+
+# NETFLIX EUREKA PROPERTIES
+eureka:
+  client:
+    enabled: true
+    service-url:
+       defaultZone: http://localhost:30001/eureka/
+
+---
+# Production environment
+spring:
+  # PROFILES
+  profiles: prod
+  zipkin:
+    base-url: http://localhost:30003  
+
+# NETFLIX EUREKA PROPERTIES
+eureka:
+  client:
+    enabled: true
+    service-url:
+       defaultZone: http://localhost:30001/eureka/

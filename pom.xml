@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.blbuyer</groupId>
+		<artifactId>blbuyer-boot-parent</artifactId>
+		<version>1.0.0</version>
+	</parent>
+
+	<groupId>com.blbuyer.bookingservice</groupId>
+	<artifactId>bookingservice</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<properties>
+		<common.exclude.file>**/application.yml</common.exclude.file>
+		<commons-io.version>2.5</commons-io.version>
+		<logbook.version>1.5.5</logbook.version>
+		<blbuyer-core.version>1.0.0</blbuyer-core.version>
+		<javamelody-core.version>1.71.0</javamelody-core.version>
+		<basic-vo.version>1.0.0-SNAPSHOT</basic-vo.version>
+		<basic-domain.version>1.0.0-SNAPSHOT</basic-domain.version>
+		<shiro-core.version>1.3.2</shiro-core.version>
+		<cglib-nodep.version>3.2.4</cglib-nodep.version>
+		<poi.version>3.15</poi.version>
+	</properties>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>net.bull.javamelody</groupId>
+				<artifactId>javamelody-core</artifactId>
+				<version>${javamelody-core.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>commons-io</groupId>
+				<artifactId>commons-io</artifactId>
+				<version>${commons-io.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.zalando</groupId>
+				<artifactId>logbook-spring-boot-starter</artifactId>
+				<version>${logbook.version}</version>
+			</dependency>			
+			<dependency>
+				<groupId>org.apache.shiro</groupId>
+				<artifactId>shiro-core</artifactId>
+				<version>${shiro-core.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>cglib</groupId>
+				<artifactId>cglib-nodep</artifactId>
+				<version>${cglib-nodep.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.poi</groupId>
+				<artifactId>poi-ooxml</artifactId>
+				<version>${poi.version}</version>
+			</dependency>
+
+
+		</dependencies>
+	</dependencyManagement>
+
+	<dependencies>
+		<dependency>
+			<groupId>net.bull.javamelody</groupId>
+			<artifactId>javamelody-core</artifactId>
+		</dependency>
+	</dependencies>
+
+	<modules>		
+		<module>booking-service</module>
+		<module>booking-domain</module>
+		<module>booking-vo</module>
+	</modules>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<configuration>
+					<skipTests>true</skipTests>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+
+</project>

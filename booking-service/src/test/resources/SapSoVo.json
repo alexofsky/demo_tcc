@@ -1,0 +1,30 @@
+{
+	"vbeln": "0005000100",
+	"erdadt": "",
+	"erzet": "",
+	"kunnr": "",
+	"bstnk": "test",
+	"ernam": "",
+	"audat": "",
+	"auart": "OR",
+	"waerk": "",
+	"vkorg": "",
+	"vtweg": "",
+	"spart": "",
+	"vdatu": "",
+	"kalsm": "",
+	"headtoitemnav": {
+		"results": [{
+			"vbeln": "0005000100",
+			"posnr": "",
+			"matnr": "TG12",
+			"kwmeng": "10.000",
+			"netwr": "123",
+			"werks": "",
+			"vstel": "",
+			"route": "",
+			"prctr": "",
+			"vrkme": ""
+		}]
+	}
+}

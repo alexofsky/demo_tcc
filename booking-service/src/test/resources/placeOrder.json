@@ -1,0 +1,16 @@
+{
+	"address": "上海市长宁区100号",
+	"mobile": "13888888888",
+	"orderItems": [{
+		"code": "TG12",
+		"pic": "pic_1000",
+		"price": 10,
+		"qty": "2",
+		"title": "男士衬衫teststsfdsafafasdfasfasfddas好的"
+	}],
+	"provinceCode": "109",
+	"provinceName": "上海市",
+	"totalAmount": 20,
+	"userId": "yyyy01",
+	"username": "test01"
+}
